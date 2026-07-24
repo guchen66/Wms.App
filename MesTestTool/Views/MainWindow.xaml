@@ -1,0 +1,17 @@
+﻿<Window
+    x:Class="MesTestTool.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    Width="900"
+    Height="650"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button
+            Width="200"
+            Height="30"
+            Command="{Binding UpLoadCommand}"
+            Content="上传MES" />
+    </Grid>
+</Window>

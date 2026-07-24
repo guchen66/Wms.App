@@ -1,4 +1,4 @@
-Kstopa.Lx.WMS仓库管理系统
+Wms 仓库管理系统
 
 使用Prism.DryIoc+SqlSugar+Mysql+MahApps+Mapster
 

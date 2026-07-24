@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="ValueConverters" Version="3.0.26" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wms.Admin\Wms.Admin.csproj" />
+    <ProjectReference Include="..\Wms.Communication\Wms.Communication.csproj" />
+    <ProjectReference Include="..\Wms.Core\Wms.Core.csproj" />
+    <ProjectReference Include="..\Wms.Data\Wms.Data.csproj" />
+  </ItemGroup>
+</Project>

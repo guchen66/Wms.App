@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\Fonts\iconfont.ttf" />
+    <None Remove="Assets\Images\0.jpg" />
+    <None Remove="Assets\Images\bg.jpeg" />
+    <None Remove="Assets\Images\Header.jpeg" />
+    <None Remove="Assets\Images\home.jpg" />
+    <None Remove="Assets\Images\set.png" />
+    <None Remove="Assets\Images\设计.jpg" />
+    <None Remove="Assets\Images\雪花.jpeg" />
+    <None Remove="Assets\Images\login_bg.jpg" />
+    <None Remove="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wms.Admin\Wms.Admin.csproj" />
+    <ProjectReference Include="..\Wms.Controls\Wms.Controls.csproj" />
+    <ProjectReference Include="..\Wms.Core\Wms.Core.csproj" />
+    <ProjectReference Include="..\Wms.Data\Wms.Data.csproj" />
+  
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\iconfont.ttf" />
+    <Resource Include="Assets\Images\0.jpg" />
+    <Resource Include="Assets\Images\bg.jpeg" />
+    <Resource Include="Assets\Images\Header.jpeg" />
+    <Resource Include="Assets\Images\home.jpg" />
+    <Resource Include="Assets\Images\set.png" />
+    <Resource Include="Assets\Images\设计.jpg" />
+    <Resource Include="Assets\Images\雪花.jpeg" />
+    <Resource Include="Assets\Images\login_bg.jpg" />
+  </ItemGroup>
+</Project>

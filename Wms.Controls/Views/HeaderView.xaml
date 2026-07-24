@@ -1,0 +1,76 @@
+﻿<UserControl
+    x:Class="Wms.Controls.Views.HeaderView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:const="clr-namespace:Wms.Core.Consts;assembly=Wms.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Wms.Controls.Views"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger x:Name="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <const:SkinColorList x:Key="skinColorList" />
+    </UserControl.Resources>
+    <Grid>
+        <!--  `ssda  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Margin="20"
+            FontSize="20"
+            FontWeight="Bold"
+            Text="My App" />
+        <WrapPanel Grid.Column="1">
+            <StackPanel Margin="20" Orientation="Horizontal">
+                <TextBlock
+                    Margin="10"
+                    FontSize="16"
+                    Text="{Binding Batch}" />
+                <ComboBox
+                    Name="skinComboBox"
+                    Width="100"
+                    DisplayMemberPath="Color"
+                    ItemsSource="{Binding Source={StaticResource skinColorList}}"
+                    SelectedItem="{Binding Path=SelectedSkinColor}"
+                    SelectedValuePath="Color" />
+                <!--  DisplayMemberPath下拉菜单属性名 SelectedValuePath唯一标识数据对象属性  -->
+
+                <TextBlock
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    FontSize="16"
+                    Text="Welcome, Liuxin" />
+            </StackPanel>
+            <StackPanel
+                Margin="20"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Orientation="Horizontal"
+                TextBlock.TextAlignment="Right">
+                <TextBlock
+                    Name="lblDate"
+                    Width="220"
+                    Height="30"
+                    FontSize="20"
+                    Foreground="Aqua" />
+                <TextBlock
+                    Name="lblTime"
+                    Width="100"
+                    Height="30"
+                    Margin="0,0,20,0"
+                    FontSize="20"
+                    Foreground="Aqua" />
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</UserControl>
