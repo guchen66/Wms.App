@@ -115,10 +115,9 @@
                         <TextBox Grid.Column="1"
                                  Style="{DynamicResource LoginTextBoxStyle}"
                                  Margin="0,0,0,0"
-
                                  mah:TextBoxHelper.ClearTextButton="True"
                                  mah:TextBoxHelper.Watermark="请输入用户名"
-                                 Text="{x:Static account:LoginAccount.SysUser}" />
+                                 Text="{Binding UserName}" />
                     </Grid>
                 </StackPanel>
 
@@ -138,7 +137,7 @@
                                      Name="PasswordBox"
                                      Style="{DynamicResource LoginPasswordBoxStyle}"
                                      Margin="0,0,0,0"
-                                     mah:PasswordBoxBindingBehavior.Password="{x:Static account:LoginAccount.SysPwd}"
+                                     mah:PasswordBoxBindingBehavior.Password="{Binding Password}"
                                      mah:TextBoxHelper.ClearTextButton="True"
                                      mah:TextBoxHelper.Watermark="请输入密码" />
                     </Grid>

@@ -30,32 +30,36 @@ namespace Wms.App
             SugarIocServices.ConfigurationSugar(db => 
             {
                 db.GlobalFilter();
-               
-                //例1 获取所有表
-             /*   var tables = db.DbMaintenance.GetTableInfoList(false);//true 走缓存 false不走缓存
-                foreach (var table in tables)
-                {
-                    var s1=table.DbObjectType;
-                    var s2=table.Name;
-                    var s3 = table.Description;
-                   
-                    Console.WriteLine(table.Description);//输出表信息
-                }
+                var databaseList = db.DbMaintenance.GetDataBaseList();
 
-                var userColumns= db.DbMaintenance.GetColumnInfosByTableName("UserInfo", false);
-                foreach (var item in userColumns)
-                {
-                    var s1 = item.Value;
-                    var s2 = item.DbColumnName;
-                    var s3 = item.TableName;
-                    var s4 = item.DataType;
-                    var s5 = item.PropertyType;
-                    var s6 = item.SqlParameterDbType;
-                    var s7 = item.OracleDataType;
-                    var s8 = item.GetType();
-                }*/
+                // 判断目标数据库是否存在
+
+                //例1 获取所有表
+                /*   var tables = db.DbMaintenance.GetTableInfoList(false);//true 走缓存 false不走缓存
+                   foreach (var table in tables)
+                   {
+                       var s1=table.DbObjectType;
+                       var s2=table.Name;
+                       var s3 = table.Description;
+
+                       Console.WriteLine(table.Description);//输出表信息
+                   }
+
+                   var userColumns= db.DbMaintenance.GetColumnInfosByTableName("UserInfo", false);
+                   foreach (var item in userColumns)
+                   {
+                       var s1 = item.Value;
+                       var s2 = item.DbColumnName;
+                       var s3 = item.TableName;
+                       var s4 = item.DataType;
+                       var s5 = item.PropertyType;
+                       var s6 = item.SqlParameterDbType;
+                       var s7 = item.OracleDataType;
+                       var s8 = item.GetType();
+                   }*/
             });
-            
+            // 获取所有数据库名称
+           
             //创建数据库
             if (GeneratorDataProvider.IsAutoTable)
             {

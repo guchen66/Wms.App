@@ -13,7 +13,14 @@
 
  Date: 14/04/2024 21:35:23
 */
+-- 1. 如果数据库已存在，则先删除（可选，为了保持环境干净）
+DROP DATABASE IF EXISTS `system_cargo`;
 
+-- 2. 创建新的数据库，并指定字符集
+CREATE DATABASE `system_cargo` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';
+
+-- 3. 指定接下来的操作都在这个数据库中进行
+USE `system_cargo`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

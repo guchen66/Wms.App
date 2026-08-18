@@ -115,7 +115,7 @@
     </Style>
 
     <!-- 输入框样式 -->
-    <Style x:Key="LoginTextBoxStyle" TargetType="TextBox">
+    <Style x:Key="LoginTextBoxStyle2" TargetType="TextBox">
         <Setter Property="Width" Value="280" />
         <Setter Property="Height" Value="45" />
         <Setter Property="FontSize" Value="16" />
@@ -154,8 +154,35 @@
         </Setter>
     </Style>
 
+    <Style x:Key="LoginTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+        <!-- 继承 MahApps 的默认 TextBox 样式 -->
+
+        <Setter Property="Width" Value="280" />
+        <Setter Property="Height" Value="45" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Padding" Value="15,0,0,0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="#E0E0E0" />
+        <Setter Property="BorderThickness" Value="1" />
+
+        <!-- 绝对不要在这里写 <Setter Property="Template"> -->
+        <!-- 如果你需要修改圆角等，MahApps 通常提供了附加属性，例如： -->
+        <Setter Property="mah:ControlsHelper.CornerRadius" Value="8" />
+
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="#0078D7" />
+                <Setter Property="BorderThickness" Value="2" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <!-- 密码框样式 -->
-    <Style x:Key="LoginPasswordBoxStyle" TargetType="PasswordBox">
+    <Style x:Key="LoginPasswordBoxStyle2" TargetType="PasswordBox">
         <Setter Property="Width" Value="280" />
         <Setter Property="Height" Value="45" />
         <Setter Property="FontSize" Value="16" />
@@ -192,6 +219,28 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="LoginPasswordBoxStyle" TargetType="PasswordBox" BasedOn="{StaticResource {x:Type PasswordBox}}">
+        <Setter Property="Width" Value="280" />
+        <Setter Property="Height" Value="45" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Padding" Value="15,0,0,0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="#E0E0E0" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="mah:ControlsHelper.CornerRadius" Value="8" />
+
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="#0078D7" />
+                <Setter Property="BorderThickness" Value="2" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!-- 错误提示TextBlock样式 -->

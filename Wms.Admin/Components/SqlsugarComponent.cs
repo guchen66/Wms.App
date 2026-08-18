@@ -20,8 +20,8 @@ namespace Wms.Admin.Components
             registry.RegisterScoped(typeof(IBaseService<>), typeof(BaseService<>));
             registry.RegisterScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             registry.RegisterScoped<IProductDataConfigService,ProductDataConfigService>();
-            // containerRegistry.RegisterScoped<IUserService, UserService>();
-            // containerRegistry.Register<IUserRepository, UserRepository>();
+            registry.RegisterScoped<IUserService, UserService>();
+            registry.RegisterScoped<IUserRepository, UserRepository>();
         }
     }
 }

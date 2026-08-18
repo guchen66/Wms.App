@@ -4,6 +4,11 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+	<!-- 1. 使用 OutputPath 直接指定最终输出目录 -->
+    <OutputPath>..\MainBin\</OutputPath>
+  
+    <!-- 2. 核心：禁止在路径末尾追加目标框架名称（解决 net6.0-windows 问题） -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\Fonts\iconfont.ttf" />

@@ -1,6 +1,3 @@
-using Wms.Core.Dtos;
-using Wms.Core.Events;
-using Wms.Data.Models;
 using Newtonsoft.Json;
 using Prism.Events;
 using Prism.Ioc;
@@ -11,20 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Wms.Admin.IServices;
+using Wms.Admin.Services;
+using Wms.Core.Dtos;
+using Wms.Core.Events;
+using Wms.Data.Models;
 
 namespace Wms.Admin.Providers.LoginSign
 {
     public class LoginService : ILoginService
     {
         public SimpleClient<UserInfo> db = new SimpleClient<UserInfo>();
+        private IUserService _userService;
         private readonly IEventAggregator _eventAggregator;
         //  private readonly ILogger _logger;
         private readonly IContainerProvider _container;
-        public LoginService(IEventAggregator eventAggregator, IContainerProvider container)
+        public LoginService(IEventAggregator eventAggregator, IContainerProvider container, IUserService userService)
         {
             //  this._logger = logger;
             _eventAggregator = eventAggregator;
             _container = container;
+            _userService = userService;
             _eventAggregator.GetEvent<LoginEvent>().Subscribe(LoginExecute);
             _eventAggregator.GetEvent<LogOutEvent>().Subscribe(async () => await LogoutAsync());
         }
@@ -44,13 +48,23 @@ namespace Wms.Admin.Providers.LoginSign
             return Task.CompletedTask;
         }
 
+        public async Task LogoutAsync2()
+        {
+            await Task.Run(() =>
+            {
+                var activeWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                activeWindow?.Close();
+            });
+        }
+          
+
         public async Task<bool> LoginAsync(LoginInputDto loginDto)
         {
             if (loginDto == null || string.IsNullOrWhiteSpace(loginDto.UserName) || string.IsNullOrWhiteSpace(loginDto.Password)) 
                 return false;
-            
+
             // 查询数据库验证用户名和密码是否匹配
-            var userInfo = await db.GetFirstAsync(x => x.Name == loginDto.UserName && x.Password == loginDto.Password);
+            var userInfo = await _userService.QueryAsync(x => x.Name == loginDto.UserName && x.Password == loginDto.Password);
             return userInfo != null;
         }
 

@@ -33,7 +33,7 @@ namespace Wms.App
     public partial class App : PrismApplication
     {
         Mutex mutex;
-        //  private static readonly Cargo.Core.Loggers.ILogger logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILogger Logger ;
         protected override void OnStartup(StartupEventArgs e)
         {
             mutex = new Mutex(true, "WMS系统");
@@ -51,7 +51,6 @@ namespace Wms.App
         {
             mutex.ReleaseMutex();
             mutex.Close();
-
             base.OnExit(e);
 
         }
@@ -94,7 +93,9 @@ namespace Wms.App
         {
            // DialogWindow
             base.OnInitialized();
-          //  var regionManager = Container.Resolve<IRegionManager>();
+            LoggerNew.Process("程序启动完成");
+            LoggerNew.Other("程序启动完成2");
+            //  var regionManager = Container.Resolve<IRegionManager>();
         }
     }
 }
